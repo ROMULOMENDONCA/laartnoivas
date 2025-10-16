@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Laart Noivas</title>
+  <title>LAART</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -19,89 +23,92 @@
     header {
       background: linear-gradient(to right, #000, #1a1a1a);
       color: #d4af37;
-      padding: 50px 20px;
+      padding: 30px 20px;
       text-align: center;
       border-bottom: 2px solid #d4af37;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
       letter-spacing: 1px;
     }
-    header p {
-      font-size: 1.3rem;
-      color: #bbb;
+    nav {
+      margin-top: 10px;
     }
-    .carousel {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 40px auto;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-      height: 600px;
+    nav a {
+      color: #f5f5f5;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
     }
-    .carousel img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-    }
-    .carousel img.active {
-      opacity: 1;
-      z-index: 1;
-    }
-    .content {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      text-align: center;
-      background-color: #222;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-    }
-    .content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      margin-bottom: 20px;
+    nav a:hover {
       color: #d4af37;
     }
-    .content p {
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-      color: #ddd;
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      text-align: center;
     }
-    .zap-button {
-      display: inline-flex;
-      align-items: center;
-      background: linear-gradient(to right, #25D366, #1ebe5d);
-      color: white;
-      padding: 15px 30px;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 50px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    .noivas {
+      background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+      border-left: 5px solid #d4af37;
+    }
+    .recepcoes {
+      background: linear-gradient(to bottom, #2e3b2f, #1a1a1a);
+      border-left: 5px solid #6dbf4b;
+    }
+    .lafer {
+      background: linear-gradient(to bottom, #3a2f2f, #1a1a1a);
+      border-left: 5px solid #caa17a;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    section p {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+    section img {
+      width: 90%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 10px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .social-buttons a {
       transition: transform 0.3s ease;
     }
-    .zap-button:hover {
-      transform: scale(1.05);
+    .social-buttons a:hover {
+      transform: scale(1.1);
     }
-    .zap-button img {
-      width: 24px;
-      margin-right: 12px;
+    .social-buttons img {
+      width: 36px;
+      height: 36px;
     }
     footer {
       background-color: #000;
       color: #ccc;
       text-align: center;
       padding: 20px;
-      margin-top: 60px;
+      margin-top: 40px;
       border-top: 2px solid #d4af37;
       font-size: 0.85rem;
     }
@@ -112,34 +119,94 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section h2 {
+        font-size: 1.5rem;
+      }
+      section p {
+        font-size: 0.95rem;
+      }
+      .social-buttons img {
+        width: 32px;
+        height: 32px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Laart Noivas</h1>
-    <p>Aluguel de roupas para momentos inesquecíveis</p>
+    <h1>LAART</h1>
+    <nav>
+      <a href="#noivas">Noivas</a>
+      <a href="#recepcoes">Recepções</a>
+      <a href="#lafer">Lafer</a>
+    </nav>
   </header>
 
-  <div class="carousel">
-    <img src="imagem1.jpg" alt="Vestido de Noiva" class="active">
-    <img src="imagem2.jpg" alt="Traje de Noivo">
-    <img src="imagem3.jpg" alt="Vestido de Festa">
-  </div>
-
-  <div class="content">
-    <h2>Sobre Nós</h2>
+  <section id="noivas" class="noivas">
+    <h2>LAART NOIVAS</h2>
+    <img src="noivas.jpg" alt="Vestidos e trajes de noiva">
     <p>
-      Na Laart Noivas, você encontra mais de 4 mil opções dos melhores trajes para casamentos, formaturas e eventos especiais.
-      Temos vestidos de noiva, ternos para noivos, roupas para padrinhos, madrinhas e muito mais.
-      Tudo com qualidade, estilo e aquele toque de elegância que seu momento merece.
+      Aluguel de vestidos de noiva, trajes para noivos, formaturas e eventos especiais.  
+      Mais de 4 mil opções com elegância, estilo e sofisticação.
     </p>
+    <div class="social-buttons">
+      <a href="https://wa.me/5581996563803" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+      <a href="https://instagram.com/laartnoivas" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/laartnoivas" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+      </a>
+    </div>
+  </section>
 
-    <a class="zap-button" href="https://wa.me/5581996563803?text=Olá%20gostaria%20de%20saber%20mais%20sobre%20os%20trajes%20de%20noiva,%20noivo%20e%20formatura!" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-      Fale com a gente no WhatsApp
-    </a>
-  </div>
+  <section id="recepcoes" class="recepcoes">
+    <h2>LAART RECEPÇÕES</h2>
+    <img src="recepcoes.jpg" alt="Casa de recepções no sítio">
+    <p>
+      Uma casa de recepções no sítio, perfeita para casamentos, aniversários e eventos especiais.  
+      Decoração personalizada, ambiente natural e estrutura completa para celebrar com estilo.
+    </p>
+    <div class="social-buttons">
+      <a href="https://wa.me/5581996563803" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+      <a href="https://instagram.com/laartrecepcoes" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/laartrecepcoes" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+      </a>
+    </div>
+  </section>
+
+  <section id="lafer" class="lafer">
+    <h2>LAFER</h2>
+    <img src="lafer.jpg" alt="Produtos artesanais Lafer">
+    <p>
+      Perfumes, sabonetes e decorações artesanais que encantam.  
+      Produtos feitos com carinho, aroma e beleza para transformar ambientes e momentos.
+    </p>
+    <div class="social-buttons">
+      <a href="https://wa.me/5581996563803" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+      <a href="https://instagram.com/laferartes" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      </a>
+      <a href="https://facebook.com/laferartes" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+      </a>
+    </div>
+  </section>
 
   <footer>
     📍 <a href="https://www.google.com/maps/place/Avenida+Leonardo+da+Vinci,+96D+-+Curado+II,+Jaboatão+dos+Guararapes" target="_blank">
@@ -147,21 +214,5 @@
     </a>
   </footer>
 
-  <script>
-    let index = 0;
-    const slides = document.querySelectorAll(".carousel img");
-
-    function showSlide() {
-      slides.forEach((img, i) => {
-        img.classList.remove("active");
-        if (i === index) img.classList.add("active");
-      });
-      index = (index + 1) % slides.length;
-    }
-
-    slides[0].classList.add("active");
-    setInterval(showSlide, 4000);
-  </script>
-
 </body>
-</html>
+</html
